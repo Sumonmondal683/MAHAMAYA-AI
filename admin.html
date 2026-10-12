@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>গ্যালারি অ্যাডমিন | মহামায়া AI</title>
+<style>
+:root{--sindoor:#a31f17;--sindoor-d:#7c1510;--haldi:#e9a71b;--haldi-s:#fdf0cf;--ink:#2a1a17;--muted:#7a6761;--line:#eadfd8;--paper:#fffefc;--wash:#f8f3ef}
+@media (prefers-color-scheme:dark){:root{--sindoor:#c9382e;--sindoor-d:#a82920;--haldi-s:#3a2c10;--ink:#f6ebe4;--muted:#bfa89d;--line:#41302a;--paper:#1f1513;--wash:#170f0d}}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Hind Siliguri","Noto Sans Bengali","Vrinda",system-ui,sans-serif;color:var(--ink);background:var(--wash);line-height:1.6}
+main{max-width:860px;margin:0 auto;padding:16px}
+h1{margin:0 0 4px;font-size:22px;color:var(--sindoor)}
+p.sub{margin:0 0 16px;color:var(--muted);font-size:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+input[type=password]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--wash);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0 12px}
+button{font:inherit;cursor:pointer;border-radius:999px;border:1px solid var(--line);background:var(--wash);color:var(--ink);padding:7px 16px;min-height:40px}
+button.primary{background:var(--sindoor);border-color:var(--sindoor);color:#fff;font-weight:600}
+button.ok{background:#1e7a3a;border-color:#1e7a3a;color:#fff;font-weight:600}
+button.bad{color:#b3261e;border-color:#b3261e;background:transparent}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}
+.bar .sp{flex:1}
+.tab[aria-selected=true]{background:var(--haldi-s);border-color:var(--haldi);font-weight:700}
+#msg{margin:8px 0;color:var(--sindoor);font-size:14.5px;min-height:1.4em}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--wash)}
+.item .body{padding:10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item .cap{overflow-wrap:anywhere;min-height:1.6em}
+.item .cap.none{color:var(--muted);font-style:italic}
+.item small{color:var(--muted)}
+.item .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <h1>গ্যালারি অ্যাডমিন</h1>
+  <p class="sub">জমা পড়া ছবি দেখে অনুমোদন করলেই তা চ্যাটের গ্যালারিতে দেখাবে।</p>
+
+  <section id="login" class="card" hidden>
+    <label for="pw"><b>অ্যাডমিন পাসওয়ার্ড</b></label>
+    <input id="pw" type="password" autocomplete="current-password">
+    <button id="loginBtn" class="primary" type="button">লগইন</button>
+  </section>
+
+  <section id="panel" hidden>
+    <div class="bar">
+      <button class="tab" id="tabPending" role="tab" aria-selected="true" type="button"></button>
+      <button class="tab" id="tabApproved" role="tab" aria-selected="false" type="button"></button>
+      <span class="sp"></span>
+      <button id="logoutBtn" type="button">লগআউট</button>
+    </div>
+    <div id="list" class="list"></div>
+  </section>
+  <p id="msg" role="status" aria-live="polite"></p>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>
